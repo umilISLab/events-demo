@@ -1,0 +1,36 @@
+.Charts {
+  padding: 0px 100px 0;
+  background-color: #1a1a1a;
+  font-family: "Indie Flower", cursive;
+}
+
+.Charts h1 {
+  font-size: 70px;
+  color: white;
+  line-height: 1;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.Charts h1 strong {
+  background: #b82974;
+  background: linear-gradient(to right, #b82974 27%, #45fdf2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Charts p {
+  font-size: 20px;
+  color: white;
+  max-width: 700px;
+  margin-bottom: 40px;
+}
+
+.ChartContainer {
+  height: 600px;
+  margin: 50px 0 0 0;
+}
+
+text {
+  font-size: 20px;
+}

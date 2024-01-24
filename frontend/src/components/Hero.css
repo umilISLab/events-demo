@@ -1,0 +1,60 @@
+.Hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  /* background-image: url("/bg.jpeg"); */
+  background-size: cover;
+  background-position: center;
+  padding: 70px;
+  font-family: "Indie Flower", cursive;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+/* .Hero .Statue {
+  width: 600px;
+  position: absolute;
+  right: -50px;
+  bottom: 0;
+} */
+
+.Hero .LogoContainer {
+  /* position: absolute; */
+  /* top: 20px; */
+}
+
+.Hero .Logo {
+  width: 150px;
+}
+
+.Hero .LogoUnimi {
+  width: 440px;
+  margin-left: 40px;
+}
+
+.Hero h1 {
+  font-size: 80px;
+  color: white;
+  line-height: 1;
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+
+.Hero h1 strong {
+  background: #b82974;
+  background: linear-gradient(to right, #b82974 27%, #45fdf2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Hero p {
+  font-size: 20px;
+  color: white;
+  max-width: 600px;
+}
+
+/* .Sphere {
+  bottom: -75px;
+  right: 25px;
+} */

@@ -1,0 +1,20 @@
+.HorizontalTimeline {
+  height: 300px;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.HorizontalTimelineLegend {
+  position: absolute;
+  bottom: 35px;
+  right: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  margin-right: 35px;
+}
+
+.HorizontalTimelineLegend span {
+  font-family: "Indie Flower", cursive;
+}
