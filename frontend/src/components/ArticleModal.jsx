@@ -5,8 +5,9 @@ import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
 import Chip from "@mui/joy/Chip";
 
+import "./ArticleModal.css";
+
 function countedEvents(events) {
-  console.log(events, events);
   const _events = {};
   events.forEach((event) => {
     const eventLabel = event.label;
@@ -26,9 +27,32 @@ function countedEvents(events) {
   return { highEvents, lowEvents };
 }
 
+function generateDynamicBody(bodyData) {
+  let body = "";
+
+  bodyData.forEach((el) => {
+    const offsets = [];
+
+    for (const off in el.offsets) {
+      if (off.split("*").length === 1) offsets[el.offsets[off]] = off;
+    }
+
+    el.tokens.forEach((token, i) => {
+      if (offsets[i]) {
+        body += `<div class="tooltip">${token} <small class='tooltiptext'>${offsets[i]}</small></div> `;
+      } else {
+        body += `<span>${token}</span> `;
+      }
+    });
+  });
+
+  return body;
+}
+
 function ArticleModal({ isOpen, data, close }) {
+  const test2 = generateDynamicBody(data.body);
+
   const bodyArray = data.body.map((el) => el.tokens);
-  const completeBody = bodyArray.flat(1);
 
   const { highEvents, lowEvents } = countedEvents(data.events);
 
@@ -48,7 +72,8 @@ function ArticleModal({ isOpen, data, close }) {
           sx={{
             maxWidth: "70%",
             maxHeight: "80%",
-            overflow: "auto",
+            overflowY: "auto",
+            overflowX: "hidden",
             borderRadius: "md",
             p: 5,
             boxShadow: "lg",
@@ -79,6 +104,7 @@ function ArticleModal({ isOpen, data, close }) {
           {data.events &&
             highEvents.map((event) => (
               <Chip
+                key={event}
                 sx={{ mr: 2, mb: 1 }}
                 variant="soft"
                 size="sm"
@@ -90,6 +116,7 @@ function ArticleModal({ isOpen, data, close }) {
           {data.events &&
             lowEvents.map((event) => (
               <Chip
+                key={event}
                 sx={{ mr: 2, mb: 1 }}
                 variant="soft"
                 size="sm"
@@ -118,9 +145,12 @@ function ArticleModal({ isOpen, data, close }) {
                 <small>{role.label}: </small> {role.value.join(" ")}
               </Chip>
             ))} */}
-          <Typography sx={{ mt: 4 }} id="modal-desc" textColor="text.tertiary">
-            {completeBody.join(" ")}
-          </Typography>
+          <Typography
+            sx={{ mt: 4 }}
+            id="modal-desc"
+            textColor="text.tertiary"
+          ></Typography>
+          <div dangerouslySetInnerHTML={{ __html: test2 }} />
         </Sheet>
       </Modal>
     </div>

@@ -1,8 +1,6 @@
 .Home {
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
-  /* flex-direction: column; */
   height: 100vh;
   max-width: 1920px;
   margin: 0 auto;
@@ -33,7 +31,6 @@
   padding: 30px;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
 }
 
@@ -43,19 +40,19 @@
 
 .Select {
   width: 500px;
-  /* margin: 0 auto; */
 }
 
-/* .Home .LogoContainer {
-  position: absolute;
-  top: 40px;
-} */
+@media only screen and (max-width: 1600px) {
+  .Home {
+    display: block;
+  }
 
-/* .Home .Logo {
-  width: 150px;
-} */
+  .Home .HeroContainer,
+  .Home .FormContainer {
+    width: 100%;
+  }
 
-/* .Home .LogoUnimi {
-  width: 440px;
-  margin-left: 40px;
-} */
+  .Home .FormContainer {
+    padding: 0 70px 70px 70px;
+  }
+}

@@ -4,16 +4,35 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import "./index.css";
 import Home from "./components/Home.jsx";
+import AuthGuard from "./components/AuthGuard.jsx";
+import Login from "./components/Login.jsx";
 
 const router = createBrowserRouter([
   {
+    path: "/login",
+    element: (
+      <AuthGuard>
+        <Login />
+      </AuthGuard>
+    ),
+    errorElement: <>Error Page</>,
+  },
+  {
     path: "/",
-    element: <Home />,
+    element: (
+      <AuthGuard>
+        <Home />
+      </AuthGuard>
+    ),
     errorElement: <>Error Page</>,
   },
   {
     path: "/main",
-    element: <App />,
+    element: (
+      <AuthGuard>
+        <App />
+      </AuthGuard>
+    ),
     errorElement: <>Error Page</>,
   },
 ]);

@@ -28,10 +28,7 @@ function Hero() {
         nibh, sit amet tempor velit tempor id. Cras ligula tortor, tristique
         vitae mi sed, convallis porta nibh. Pellentesque id tincidunt leo, vitae
         dapibus turpis. Integer vitae malesuada odio. Donec vel bibendum tortor.
-        Curabitur sed aliquam augue. Nam suscipit convallis pharetra. Aenean
-        vitae congue libero. Donec eu massa interdum mauris bibendum tristique.
-        Duis pretium, orci eget hendrerit consectetur, ligula tortor placerat
-        lacus, quis mollis nisi lectus sed mi.
+        Curabitur sed aliquam augue.
       </p>
       {/* <img className="Statue" src="/statue_1.webp"></img> */}
     </div>

@@ -69,7 +69,7 @@ function Timeline({ data }) {
                     color: "black",
                   }}
                   icon={<NewspaperIcon />}
-                  id={e.date}
+                  id={new Date(e.date).toLocaleDateString()}
                 >
                   <div className="ChipsContainer">
                     {eventsChips &&

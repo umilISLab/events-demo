@@ -21,8 +21,6 @@ function parseData(data) {
     });
   }
 
-  console.log("mappedData", mappedData);
-
   return mappedData;
 }
 
@@ -48,7 +46,7 @@ function HorizontalTimeline({ data }) {
         dayBorderWidth={2}
         dayBorderColor="#ffffff"
         onClick={(event) => {
-          window.location.hash = event.day;
+          window.location.hash = new Date(event.day).toLocaleDateString();
         }}
         legends={[
           {

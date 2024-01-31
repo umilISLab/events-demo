@@ -3,6 +3,7 @@ import cors from "cors";
 import "./loadEnvironment.mjs";
 import "express-async-errors";
 import events from "./routes/events.mjs";
+import auth from "./routes/auth.mjs";
 
 const PORT = process.env.PORT || 5050;
 const app = express();
@@ -12,6 +13,9 @@ app.use(express.json());
 
 // Load the /events routes
 app.use("/events", events);
+
+// Load the /auth routes
+app.use("/auth", auth);
 
 // Global error handling
 app.use((err, _req, res, next) => {

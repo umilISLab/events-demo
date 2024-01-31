@@ -1,0 +1,48 @@
+version: '3.9'
+
+services:
+  frontend:
+    container_name: events-demo-fe
+    image: nginx:1.25-alpine-slim
+    ports:
+      - 8097:80
+    volumes: 
+      - ./frontend/dist:/usr/share/nginx/html:ro
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "wget -nv -t1 --spider http://localhost || exit 1"]
+
+
+  # docker exec -it events-demo-events-demo-be node script.mjs
+  # docker exec -it events-demo-events-demo-be sh
+  backend:
+    container_name: events-demo-be
+    image: node:20-alpine3.17
+    expose:
+      - 5050
+    volumes:
+      - ./backend:/app
+    stdin_open: true
+    ports:
+      - 5050:5050
+    working_dir: /app
+    entrypoint: ["/bin/sh", "-c" ,"npm install && node index.mjs --host"]
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "wget -nv -t1 --spider http://localhost:5050/projects || exit 1"]
+
+
+  db:
+    container_name: events-demo-db
+    image: mongo:6.0.13
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data/db:/data/db
+    environment:
+      # MONGO_INITDB_ROOT_USERNAME: root
+      # MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: events-demo
+    restart: always
+    # healthcheck:
+      # test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/$$MONGO_INITDB_DATABASE --quiet

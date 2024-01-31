@@ -17,8 +17,6 @@ function Home() {
 
   const onChange = (dates) => {
     const [start, end] = dates;
-    console.log("start", new Date(start).toLocaleDateString());
-    console.log("end", end);
     setStartDate(start);
     setEndDate(end);
   };
@@ -76,10 +74,6 @@ function Home() {
 
   return (
     <div className="Home">
-      {/* <div className="LogoContainer">
-        <img className="Logo" src="/logo.png"></img>
-        <img src="/logo_unimi.png" alt="" className="LogoUnimi" />
-      </div> */}
       <div className="HeroContainer">
         <Hero />
       </div>
@@ -140,7 +134,7 @@ function Home() {
         />
         <Button
           sx={{ mt: 5, width: "500px" }}
-          // disabled={!presetValue.length && !customValues.length}
+          disabled={presetValue.length === 0 && customValues.length === 0}
           onClick={function () {
             const startDateFormatted = new Date(startDate).toLocaleDateString();
             const endDateFormatted = new Date(endDate).toLocaleDateString();

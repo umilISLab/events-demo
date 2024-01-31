@@ -17,8 +17,26 @@ export function ApiConnector() {
     return parsedData;
   }
 
+  async function getAuthToken(pass) {
+    const url = `${API_SERVER}/auth/login`;
+
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const data = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify({
+        pass,
+      }),
+      headers: myHeaders,
+    });
+    const parsedData = await data.json();
+    return parsedData;
+  }
+
   return {
     getEvent,
     getEventsGroup,
+    getAuthToken,
   };
 }
