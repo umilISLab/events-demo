@@ -18,3 +18,9 @@
 .HorizontalTimelineLegend span {
   font-family: "Indie Flower", cursive;
 }
+
+@media only screen and (max-width: 700px) {
+  .HorizontalTimeline {
+    display: none;
+  }
+}

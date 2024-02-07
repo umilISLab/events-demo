@@ -133,7 +133,7 @@ function Home() {
           onChange={() => setIncludeBody(!includeBody)}
         />
         <Button
-          sx={{ mt: 5, width: "500px" }}
+          sx={{ mt: 5, width: "500px", maxWidth: "100%" }}
           disabled={presetValue.length === 0 && customValues.length === 0}
           onClick={function () {
             const startDateFormatted = new Date(startDate).toLocaleDateString();

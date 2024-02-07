@@ -3,6 +3,10 @@
   background-color: #1a1a1a;
 }
 
+.SmallLayout {
+  display: none;
+}
+
 .Timeline h1 {
   font-size: 70px;
   color: white;
@@ -22,6 +26,7 @@
 .ButtonsContainer {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .Timeline p {
@@ -42,4 +47,30 @@
 
 .ChipsContainer {
   margin-top: 10px;
+}
+
+@media only screen and (max-width: 900px) {
+  .Timeline {
+    padding: 30px;
+  }
+
+  .Timeline h1 {
+    font-size: 50px;
+    color: white;
+    margin-bottom: 0;
+  }
+
+  .ButtonsContainer {
+    margin-bottom: 80px;
+  }
+
+  .SmallLayout {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .LargeLayout {
+    display: none;
+  }
 }

@@ -70,8 +70,8 @@ function ArticleModal({ isOpen, data, close }) {
         <Sheet
           variant="outlined"
           sx={{
-            maxWidth: "70%",
-            maxHeight: "80%",
+            maxWidth: "90%",
+            maxHeight: "90%",
             overflowY: "auto",
             overflowX: "hidden",
             borderRadius: "md",

@@ -34,3 +34,29 @@
 text {
   font-size: 20px;
 }
+
+@media only screen and (max-width: 900px) {
+  .Charts {
+    padding: 0px 30px 0 30px;
+  }
+
+  .Charts h1 {
+    font-size: 50px;
+    margin-bottom: 40px;
+  }
+
+  .Charts p {
+    margin-bottom: 0;
+  }
+
+  .ChartContainer {
+    height: 400px;
+    margin: 20px 0 0 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .ChartContainer {
+    height: 250px;
+  }
+}

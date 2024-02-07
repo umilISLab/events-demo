@@ -23,14 +23,47 @@ function Timeline({ data }) {
         And a <strong>timeline</strong>, please choose a topic
       </h1>
       <div className="ButtonsContainer">
-        <ButtonGroup sx={{ mt: 7 }} color="primary" variant="soft" size="lg">
+        <div className="LargeLayout">
+          <ButtonGroup
+            // orientation={window.innerWidth > 700 ? "vertical" : "horizontal"}
+            sx={{ mt: 7 }}
+            color="primary"
+            variant="soft"
+            size="lg"
+          >
+            {data.unit.map((el) => (
+              <Button
+                variant="soft"
+                key={el.event}
+                onClick={() => setEvent(el.results)}
+              >
+                {el.event}
+              </Button>
+            ))}
+            <Button variant="soft" onClick={() => setEvent(data.group.results)}>
+              ALL
+            </Button>
+          </ButtonGroup>
+        </div>
+        <div className="SmallLayout">
           {data.unit.map((el) => (
-            <Button key={el.event} onClick={() => setEvent(el.results)}>
+            <Button
+              sx={{ mt: 2, mr: 2 }}
+              variant="soft"
+              key={el.event}
+              onClick={() => setEvent(el.results)}
+            >
               {el.event}
             </Button>
           ))}
-          <Button onClick={() => setEvent(data.group.results)}>ALL</Button>
-        </ButtonGroup>
+          <Button
+            sx={{ mt: 2 }}
+            variant="soft"
+            onClick={() => setEvent(data.group.results)}
+          >
+            ALL
+          </Button>
+        </div>
       </div>
       {event && (
         <>
