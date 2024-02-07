@@ -51,10 +51,10 @@ function App() {
   return (
     <>
       {data && (
-        <>
+        <div className="App">
           <Charts data={data} />
           <Timeline data={data} />
-        </>
+        </div>
       )}
     </>
   );

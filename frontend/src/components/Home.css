@@ -38,8 +38,17 @@
   height: 370px;
 }
 
-.Select {
+.Select1,
+.Select2 {
   width: 500px;
+}
+
+.Select1 {
+  z-index: 10;
+}
+
+.Select2 {
+  z-index: 5;
 }
 
 @media only screen and (max-width: 1600px) {

@@ -83,7 +83,7 @@ function Home() {
             Choose a <strong>preset</strong>
           </h1>
           <ReactSelect
-            className="Select"
+            className="Select1"
             placeholder="Select a preset"
             onChange={(newValue) => setPresetValue(newValue)}
             disabled={!!customValues.length}
@@ -98,7 +98,7 @@ function Home() {
           <ReactSelect
             isMulti
             options={eventsOptions}
-            className="Select"
+            className="Select2"
             classNamePrefix="select"
             placeholder="Choose events"
             onChange={(value) => setCustomValues(value)}
