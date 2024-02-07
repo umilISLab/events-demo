@@ -1,5 +1,5 @@
 export function ApiConnector() {
-  const API_SERVER = "http://localhost:5050";
+  const API_SERVER = "";
 
   async function getEvent(eventName, includeBody, startDate, endDate) {
     let url = `${API_SERVER}/events/?event=${eventName}&startDate=${startDate}&endDate=${endDate}`;

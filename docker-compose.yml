@@ -10,6 +10,7 @@ services:
       - backend
     volumes: 
       - ./frontend/dist:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
     restart: always
     healthcheck:
       test: ["CMD-SHELL", "wget -nv -t1 --spider http://localhost || exit 1"]
@@ -33,15 +34,15 @@ services:
     working_dir: /app
     entrypoint: ["/bin/sh", "-c" ,"npm install && node index.mjs --host"]
     restart: always
-    healthcheck:
-      test: ["CMD-SHELL", "wget -nv -t1 --spider http://localhost:5050/projects || exit 1"]
+    #healthcheck:
+    #  test: ["CMD-SHELL", "wget -nv -t1 --spider http://localhost:5050/projects || exit 1"]
 
 
   mongo:
     container_name: events-demo-db
     image: mongo:6.0.13
     ports:
-      - 27017:27017
+      - 27027:27017
     volumes:
       - ./data/db:/data/db
     environment:
@@ -49,5 +50,5 @@ services:
       # MONGO_INITDB_ROOT_PASSWORD: example
       MONGO_INITDB_DATABASE: events-demo
     restart: always
-    # healthcheck:
-      # test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/$$MONGO_INITDB_DATABASE --quiet
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/$$MONGO_INITDB_DATABASE --quiet
