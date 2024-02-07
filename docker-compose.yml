@@ -6,6 +6,8 @@ services:
     image: nginx:1.25-alpine-slim
     ports:
       - 8097:80
+    depends_on:
+      - backend
     volumes: 
       - ./frontend/dist:/usr/share/nginx/html:ro
     restart: always
@@ -25,6 +27,9 @@ services:
     stdin_open: true
     ports:
       - 5050:5050
+    depends_on:
+      - mongo
+    links: [ mongo ]
     working_dir: /app
     entrypoint: ["/bin/sh", "-c" ,"npm install && node index.mjs --host"]
     restart: always
@@ -32,7 +37,7 @@ services:
       test: ["CMD-SHELL", "wget -nv -t1 --spider http://localhost:5050/projects || exit 1"]
 
 
-  db:
+  mongo:
     container_name: events-demo-db
     image: mongo:6.0.13
     ports:
