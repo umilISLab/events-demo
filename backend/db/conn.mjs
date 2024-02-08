@@ -1,8 +1,8 @@
 import { MongoClient } from "mongodb";
 import data from "./demo_full_data.json" assert { type: "json" };
 
-// const connectionString = "mongodb://mongo:27017/events-demo";
-const connectionString = "mongodb://localhost:27017/events-demo";
+const connectionString = "mongodb://mongo:27017/events-demo";
+// const connectionString = "mongodb://localhost:27017/events-demo";
 
 const client = new MongoClient(connectionString);
 
