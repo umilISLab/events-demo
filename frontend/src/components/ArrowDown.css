@@ -1,0 +1,20 @@
+.ArrowDown {
+  width: 3em;
+  height: 3em;
+  background-color: transparent;
+  border-width: 0 10px 10px 0;
+  border-color: white;
+  border-style: dashed;
+  z-index: 5;
+  animation: animateArrow 3s infinite ease;
+}
+
+@keyframes animateArrow {
+  0%,
+  100% {
+    transform: translateY(0) rotateZ(45deg);
+  }
+  90% {
+    transform: translateY(-20%) rotateZ(45deg);
+  }
+}

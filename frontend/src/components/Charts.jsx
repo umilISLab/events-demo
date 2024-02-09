@@ -5,6 +5,8 @@ import investigations from "../assets/investigations.json";
 import robberies from "../assets/robberies.json";
 import suicides from "../assets/suicides.json";
 import eq from "../assets/earthquakes.json";
+import WaffleChart from "./WaffleChart";
+import SpiderChart from "./SpiderChart";
 
 function Charts({ data }) {
   const chartData = data.unit.map((el) => {
@@ -17,130 +19,147 @@ function Charts({ data }) {
 
   return (
     <div className="Charts">
-      <h1>
-        Here's a <strong>chart</strong> for you
-      </h1>
-      <p>
-        Aenean elementum ultrices vehicula. Vivamus lobortis consequat nibh, sit
-        amet tempor velit tempor id. Cras ligula tortor, tristique vitae mi sed,
-        convallis porta nibh. Pellentesque id tincidunt leo, vitae dapibus
-        turpis. Integer vitae malesuada odio. Donec vel bibendum tortor.
-        Curabitur sed aliquam augue. Nam suscipit convallis pharetra.
-      </p>
-      <div className="ChartContainer">
-        <ResponsivePie
-          theme={{
-            fontSize: 16,
-          }}
-          tooltip={() => <></>}
-          data={chartData}
-          margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
-          innerRadius={0.5}
-          padAngle={0.7}
-          cornerRadius={3}
-          activeOuterRadiusOffset={8}
-          borderWidth={1}
-          borderColor={{
-            from: "color",
-            modifiers: [["darker", 0.2]],
-          }}
-          arcLinkLabelsSkipAngle={10}
-          arcLinkLabelsTextColor="white"
-          arcLinkLabelsThickness={8}
-          arcLinkLabelsColor={{ from: "color" }}
-          arcLabelsSkipAngle={10}
-          arcLabelsTextColor={{
-            from: "color",
-            modifiers: [["darker", 2]],
-          }}
-          defs={[
-            {
-              id: "dots",
-              type: "patternDots",
-              background: "inherit",
-              color: "rgba(255, 255, 255, 0.3)",
-              size: 4,
-              padding: 1,
-              stagger: true,
-            },
-            {
-              id: "lines",
-              type: "patternLines",
-              background: "inherit",
-              color: "rgba(255, 255, 255, 0.3)",
-              rotation: -45,
-              lineWidth: 6,
-              spacing: 10,
-            },
-          ]}
-          fill={[
-            {
-              match: {
-                id: "ruby",
+      <div className="ChartsContent">
+        <h1>
+          Here's some <strong>charts</strong> for you
+        </h1>
+        <p>
+          Aenean elementum ultrices vehicula. Vivamus lobortis consequat nibh,
+          sit amet tempor velit tempor id. Cras ligula tortor, tristique vitae
+          mi sed, convallis porta nibh. Pellentesque id tincidunt leo, vitae
+          dapibus turpis. Integer vitae malesuada odio. Donec vel bibendum
+          tortor. Curabitur sed aliquam augue. Nam suscipit convallis pharetra.
+        </p>
+        <div className="PieChartContainer">
+          <h1>
+            a <strong>pie</strong>
+          </h1>
+          <ResponsivePie
+            theme={{
+              fontSize: 16,
+            }}
+            tooltip={() => <></>}
+            data={chartData}
+            margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+            innerRadius={0.5}
+            padAngle={0.7}
+            cornerRadius={3}
+            activeOuterRadiusOffset={8}
+            borderWidth={1}
+            borderColor={{
+              from: "color",
+              modifiers: [["darker", 0.2]],
+            }}
+            arcLinkLabelsSkipAngle={10}
+            arcLinkLabelsTextColor="white"
+            arcLinkLabelsThickness={8}
+            arcLinkLabelsColor={{ from: "color" }}
+            arcLabelsSkipAngle={10}
+            arcLabelsTextColor={{
+              from: "color",
+              modifiers: [["darker", 2]],
+            }}
+            defs={[
+              {
+                id: "dots",
+                type: "patternDots",
+                background: "inherit",
+                color: "rgba(255, 255, 255, 0.3)",
+                size: 4,
+                padding: 1,
+                stagger: true,
               },
-              id: "dots",
-            },
-            {
-              match: {
-                id: "c",
+              {
+                id: "lines",
+                type: "patternLines",
+                background: "inherit",
+                color: "rgba(255, 255, 255, 0.3)",
+                rotation: -45,
+                lineWidth: 6,
+                spacing: 10,
               },
-              id: "dots",
-            },
-            {
-              match: {
-                id: "go",
+            ]}
+            fill={[
+              {
+                match: {
+                  id: "ruby",
+                },
+                id: "dots",
               },
-              id: "dots",
-            },
-            {
-              match: {
-                id: "python",
+              {
+                match: {
+                  id: "c",
+                },
+                id: "dots",
               },
-              id: "dots",
-            },
-            {
-              match: {
-                id: "scala",
+              {
+                match: {
+                  id: "go",
+                },
+                id: "dots",
               },
-              id: "lines",
-            },
-            {
-              match: {
-                id: "lisp",
+              {
+                match: {
+                  id: "python",
+                },
+                id: "dots",
               },
-              id: "lines",
-            },
-            {
-              match: {
-                id: "elixir",
+              {
+                match: {
+                  id: "scala",
+                },
+                id: "lines",
               },
-              id: "lines",
-            },
-            {
-              match: {
-                id: "javascript",
+              {
+                match: {
+                  id: "lisp",
+                },
+                id: "lines",
               },
-              id: "lines",
-            },
-          ]}
-          legends={[
-            {
-              anchor: "bottom",
-              direction: "column",
-              justify: false,
-              translateX: 450,
-              translateY: -50,
-              itemsSpacing: 50,
-              itemWidth: 100,
-              itemHeight: 18,
-              itemTextColor: "transparent",
-              itemDirection: "left-to-right",
-              itemOpacity: 1,
-              symbolSize: 0,
-              symbolShape: "circle",
-            },
-          ]}
-        />
+              {
+                match: {
+                  id: "elixir",
+                },
+                id: "lines",
+              },
+              {
+                match: {
+                  id: "javascript",
+                },
+                id: "lines",
+              },
+            ]}
+            legends={[
+              {
+                anchor: "bottom",
+                direction: "column",
+                justify: false,
+                translateX: 450,
+                translateY: -50,
+                itemsSpacing: 50,
+                itemWidth: 100,
+                itemHeight: 18,
+                itemTextColor: "transparent",
+                itemDirection: "left-to-right",
+                itemOpacity: 1,
+                symbolSize: 0,
+                symbolShape: "circle",
+              },
+            ]}
+          />
+        </div>
+        <div className="WaffleChartContainer">
+          <h1>
+            a <strong>waffle</strong>
+          </h1>
+          <WaffleChart data={chartData} />
+        </div>
+        <div className="SpiderChartContainer">
+          <h1>
+            a <strong>spider</strong> web
+          </h1>
+          <SpiderChart data={data.unit} />
+        </div>
       </div>
     </div>
   );

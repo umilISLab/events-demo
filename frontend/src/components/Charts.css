@@ -1,7 +1,30 @@
 .Charts {
-  padding: 0px 100px 0;
-  background-color: #1a1a1a;
-  font-family: "Indie Flower", cursive;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 30px;
+  max-width: 1220px;
+  background-color: #020202;
+  text-align: center;
+  font-family: "VT323", monospace;
+  margin: 0 auto;
+}
+
+.Charts:after {
+  content: "";
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png");
+  height: 300%;
+  width: 300%;
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  opacity: 0.1;
+  animation: animateGrain 5s steps(10) infinite;
+}
+
+.ChartsContent {
+  position: relative;
+  z-index: 2;
 }
 
 .Charts h1 {
@@ -22,20 +45,35 @@
 .Charts p {
   font-size: 20px;
   color: white;
-  max-width: 700px;
-  margin-bottom: 40px;
+  width: 700px;
+  margin: 0 auto;
 }
 
-.ChartContainer {
+.PieChartContainer,
+.WaffleChartContainer,
+.SpiderChartContainer {
   height: 600px;
   margin: 50px 0 0 0;
+}
+
+.WaffleChartContainer {
+  margin: 150px 0 0 0;
+}
+
+.SpiderChartContainer {
+  margin: 100px 0 0 0;
+}
+
+.WaffleChart,
+.SpiderChart {
+  height: 100%;
 }
 
 text {
   font-size: 20px;
 }
 
-@media only screen and (max-width: 900px) {
+/* @media only screen and (max-width: 900px) {
   .Charts {
     padding: 0px 30px 0 30px;
   }
@@ -53,10 +91,10 @@ text {
     height: 400px;
     margin: 20px 0 0 0;
   }
-}
+} */
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .ChartContainer {
     height: 250px;
   }
-}
+} */

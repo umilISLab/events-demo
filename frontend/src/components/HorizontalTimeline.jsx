@@ -46,7 +46,10 @@ function HorizontalTimeline({ data }) {
         dayBorderWidth={2}
         dayBorderColor="#ffffff"
         onClick={(event) => {
-          window.location.hash = new Date(event.day).toLocaleDateString();
+          // document.querySelector(new Date(event.day).toLocaleDateString()).scrollIntoView({
+          //   behavior: 'smooth'
+          // });
+          // window.location.hash = new Date(event.day).toLocaleDateString();
         }}
         legends={[
           {

@@ -1,6 +1,28 @@
 .Timeline {
-  padding: 100px;
-  background-color: #1a1a1a;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 70px 30px 100px 30px;
+  max-width: 1220px;
+  background-color: #020202;
+  margin: 0 auto;
+}
+
+.Timeline:after {
+  content: "";
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png");
+  height: 300%;
+  width: 300%;
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  opacity: 0.1;
+  animation: animateGrain 5s steps(10) infinite;
+}
+
+.TimelineContent {
+  position: relative;
+  z-index: 2;
 }
 
 .SmallLayout {
@@ -11,9 +33,9 @@
   font-size: 70px;
   color: white;
   line-height: 1;
-  margin-bottom: 20px;
-  font-family: "Indie Flower", cursive;
+  margin-bottom: 60px;
   text-align: center;
+  font-family: "VT323", monospace;
 }
 
 .Timeline h1 strong {
@@ -23,7 +45,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-.ButtonsContainer {
+.Timeline .ButtonsContainer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -49,7 +71,7 @@
   margin-top: 10px;
 }
 
-@media only screen and (max-width: 900px) {
+/* @media only screen and (max-width: 900px) {
   .Timeline {
     padding: 30px;
   }
@@ -73,4 +95,4 @@
   .LargeLayout {
     display: none;
   }
-}
+} */

@@ -1,6 +1,7 @@
 .Home {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   height: 100vh;
   max-width: 1920px;
   margin: 0 auto;
@@ -12,7 +13,7 @@
   line-height: 1.2;
   margin-bottom: 20px;
   margin-top: 20px;
-  font-family: "Indie Flower", cursive;
+  font-family: "VT323", monospace;
 }
 
 .Home h1 strong {
@@ -23,35 +24,18 @@
 }
 
 .Home .HeroContainer,
-.Home .FormContainer {
-  width: 48%;
-}
-
-.Home .FormContainer {
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.Home .FormContainer,
+.Home .ChartsContainer,
+.Home .TimelineContainer {
+  width: 100%;
 }
 
 .RangePickerContainer {
   height: 370px;
+  z-index: 20;
 }
 
-.Select1,
-.Select2 {
-  width: 500px;
-}
-
-.Select1 {
-  z-index: 10;
-}
-
-.Select2 {
-  z-index: 5;
-}
-
-@media only screen and (max-width: 1600px) {
+/* @media only screen and (max-width: 1600px) {
   .Home {
     display: block;
   }
@@ -64,11 +48,18 @@
   .Home .FormContainer {
     padding: 0 70px 70px 70px;
   }
+} */
+
+.fab-container {
+  bottom: 20px !important;
+  z-index: 50;
 }
 
-@media only screen and (max-width: 600px) {
-  .Select1,
-  .Select2 {
-    width: 100%;
-  }
+.FloatingButton {
+  background-color: white !important;
+  color: black !important;
+}
+
+.Anchor {
+  opacity: 0;
 }

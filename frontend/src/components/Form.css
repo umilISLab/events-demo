@@ -1,0 +1,58 @@
+.Form {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 30px;
+  max-width: 1220px;
+  height: 990px;
+  background-color: #020202;
+  text-align: center;
+  font-family: "VT323", monospace;
+  margin: 0 auto;
+}
+
+.Form:after {
+  content: "";
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png");
+  height: 300%;
+  width: 300%;
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  opacity: 0.1;
+  animation: animateGrain 5s steps(10) infinite;
+}
+
+.Select1,
+.Select2 {
+  width: 500px;
+  margin: 0 auto;
+}
+.Select1 {
+  z-index: 10;
+}
+.Select2 {
+  z-index: 5;
+}
+/* @media only screen and (max-width: 600px) {
+  .Select1,
+  .Select2 {
+    width: 100%;
+  }
+} */
+
+.WelcomeForm {
+  margin-top: 80px;
+  padding: 20px;
+}
+
+.SimpleForm {
+  z-index: 2;
+  position: relative;
+}
+
+.SimpleForm .ArrowDown {
+  position: absolute;
+  left: 48%;
+  bottom: -100px;
+}
