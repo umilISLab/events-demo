@@ -19,21 +19,29 @@ from datetime import datetime
 from tqdm import tqdm
 
 
-def spans2events(spans, location='title'):
-    events = {}
+def spans2events(spans, location='title', events=None):
+    if events is None:
+        events = {}
     for k, v in spans.items():
         to_process = []
         if "*" in k:
             to_process.append((k, v))
         else:
-            if k not in events.keys():
+            if k in events.keys():
+                if events[k]['value'] is None:
+                    events[k]['value'] = v 
+                    events[k]['text'] = " ".join(v)
+            else:
                 events[k] = {'label': k, 'value': v, 'text': " ".join(v), 'location': location, 'roles': []}
         for k, v in to_process:
             role, event = k.split("*")
             r = {'label': role, 'value': v, 'text': " ".join(v), 'location': location}
             if event in events.keys():
                 events[event]['roles'].append(r)
-    return list(events.values())
+            else:
+                events[event] = {'label': event, 'value': None, 'text': None, 'location': location, 
+                                'roles': [r]}
+    return events
         
 def doc2record(doc):
     record = {'id': doc['id'], 'date': datetime.strptime(doc['date'], "%Y-%m-%d")}
@@ -41,15 +49,11 @@ def doc2record(doc):
     body = doc['body']
     record['title'] = title
     record['body'] = body
-    title_events = spans2events(title['spans'], 'title')
-    body_events = []
+    events = {}
+    events = spans2events(title['spans'], 'title', events=events)
     for b in body:
-        body_events.extend(spans2events(b['spans'], 'body'))
-    record['events'] = []
-    for e in title_events:
-        record['events'].append(e)
-    for e in body_events:
-        record['events'].append(e)
+        events = spans2events(b['spans'], 'body', events=events)
+    record['events'] = list(events.values())
     return record
     
     
@@ -73,4 +77,9 @@ if __name__ == '__main__':
         for doc in tqdm(data):
             record = doc2record(doc)
             records.append(record)
+        # test = records[0]
+        # for e in test['events']:
+        #     print(e['label'])
+        #     print([r['label'] for r in e['roles']])
+        #     print("==========")
         db.insert_many(records)
