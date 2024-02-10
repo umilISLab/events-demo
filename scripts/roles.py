@@ -30,6 +30,7 @@ def spans2events(spans, location='title', events=None):
             if k in events.keys():
                 if events[k]['value'] is None:
                     events[k]['value'] = v 
+                if events[k]['text'] is None:
                     events[k]['text'] = " ".join(v)
             else:
                 events[k] = {'label': k, 'value': v, 'text': " ".join(v), 'location': location, 'roles': []}
