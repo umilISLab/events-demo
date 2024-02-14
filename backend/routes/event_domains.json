@@ -1,0 +1,55 @@
+{ "data": [
+  {
+    "label": "Crime news",
+    "value": ["COMMITTING_CRIME", "ROBBERY", "ARREST", "USE_FIREARM", "KILLING", "RAPE", "KIDNAPPING", "REPORTING", "INVESTIGATION"]
+  },
+  {
+    "label": "Movements",
+    "value": ["REMAIN_IN_PLACE", "GATHERING_UP", "MOVE_CLOSER", "MIGRATE", "MOVE_AWAY", "MOTION_UPWARDS", "MOTION_DOWNWARDS", "VEHICLE_TAKE_OFF", "VEHICLE_LANDING", "TRANSPORT", "ARRIVING", "RETURN", "FLEEING", "TRAVEL", "QUITTING_A_PLACE", "DEPARTING", "TEMPORARY_STAY"]
+  },
+  {
+    "label": "Meetings",
+    "value": ["ASSEMBLE", "VISITING", "COME_TOGETHER", "ENCOUNTER"]
+  },
+  {
+    "label": "Communication",
+    "value": ["ANNOUNCEMENT", "BROADCASTING", "ADVISE", "ANSWER", "SPEECH", "SUASION", "ATTEMPT_SUASION", "STATEMENT", "REQUEST", "COMMUNICATION", "ORDER", "COMPLAINING", "QUESTIONING", "PROPOSAL", "REPLY", "DISCUSSION", "CONVERSATION", "CONTACTING", "INTERVIEW", "COMMITMENT", "DENOUNCE"]
+  },
+  {
+    "label": "Arts",
+    "value": ["CREATE_ARTWORK", "PERFORMING_ARTS", "PERFORMANCE"]
+  },
+  {
+    "label": "Conflicts",
+    "value": ["WAR", "RETREAT_(MIL)", "ADVANCE_(MIL)", "CONQUERING", "FIGHTING", "OCCUPANCY", "DOWNING", "CAUSE_TO_SINK"]
+  },
+  {
+    "label": "Economics",
+    "value": ["MANUFACTURING", "BUY", "SELL", "PAY", "FUNDING", "INVEST"]
+  },
+  {
+    "label": "Judicial news",
+    "value": ["BEING_IN_EFFECT", "COME_INTO_EFFECT", "ACQUITTAL", "REPORTING", "ARREST", "SENTENCING", "TRIAL", "ACCUSE", "VERDICT", "INVESTIGATION"]
+  },
+  {
+    "label": "Laws",
+    "value": ["COME_INTO_EFFECT", "BEING_IN_EFFECT", "ISSUE_PRINCIPLE"]
+  },
+  {
+    "label": "Geo(Politics)",
+    "value": ["COUP", "ELECTORAL_CAMPAIGN", "COLONIZATION", "STRIKE", "REVOLUTION", "WIN_ELECTION", "LOSE_ELECTION", "REJECT_LEADERSHIP", "ELECTION", "POLITICAL_ACTIONS", "CHANGE_OF_LEADERSHIP", "APPOINTING_ELECTION"]
+  },
+  {
+    "label": "People and Organisations",
+    "value": ["CREATE_SOCIAL_ENTITY", "END_SOCIAL_ENTITY", "MEMBERSHIP", "BECOMING_A_MEMBER", "QUITTING_GROUP"]
+  },
+  {
+    "label": "Life and Bio",
+    "value": ["BEING_BORN", "BEING_MARRIED", "GIVING_BIRTH", "MARRIAGE", "DEATH", "RESIDENCE", "RESIDENCE_CHANGE", "GETTING_SICK", "SUICIDE", "BEING_SICK"]
+  },
+  {
+    "label": "Demos",
+    "value": ["STRIKE", "POLITICAL_ACTIONS"]
+  }
+]
+}

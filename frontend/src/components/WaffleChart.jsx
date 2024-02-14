@@ -19,8 +19,6 @@ const fakedata = [
 ];
 
 function WaffleChart({ data }) {
-  console.log("data", data);
-
   let total = 0;
   data.forEach((el) => {
     total += el.value;

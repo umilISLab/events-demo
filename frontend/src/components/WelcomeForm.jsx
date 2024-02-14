@@ -40,8 +40,9 @@ function WelcomeForm({ setFormType }) {
           <div onClick={() => setFormType("simple")} className="CustomButton">
             Easy
           </div>
-          {/* <div onClick={() => setFormType("advanced")} className="CustomButton"> */}
-          <div className="CustomButton">Advanced</div>
+          <div onClick={() => setFormType("advanced")} className="CustomButton">
+            Advanced
+          </div>
         </div>
       )}
     </div>

@@ -26,6 +26,10 @@
 }
 
 .SmallLayout {
+  text-align: center;
+}
+
+.LargeLayout {
   display: none;
 }
 

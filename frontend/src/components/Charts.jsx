@@ -1,10 +1,5 @@
 import "./Charts.css";
 import { ResponsivePie } from "@nivo/pie";
-import killings from "../assets/killings.json";
-import investigations from "../assets/investigations.json";
-import robberies from "../assets/robberies.json";
-import suicides from "../assets/suicides.json";
-import eq from "../assets/earthquakes.json";
 import WaffleChart from "./WaffleChart";
 import SpiderChart from "./SpiderChart";
 
@@ -59,101 +54,14 @@ function Charts({ data }) {
               from: "color",
               modifiers: [["darker", 2]],
             }}
-            defs={[
-              {
-                id: "dots",
-                type: "patternDots",
-                background: "inherit",
-                color: "rgba(255, 255, 255, 0.3)",
-                size: 4,
-                padding: 1,
-                stagger: true,
-              },
-              {
-                id: "lines",
-                type: "patternLines",
-                background: "inherit",
-                color: "rgba(255, 255, 255, 0.3)",
-                rotation: -45,
-                lineWidth: 6,
-                spacing: 10,
-              },
-            ]}
-            fill={[
-              {
-                match: {
-                  id: "ruby",
-                },
-                id: "dots",
-              },
-              {
-                match: {
-                  id: "c",
-                },
-                id: "dots",
-              },
-              {
-                match: {
-                  id: "go",
-                },
-                id: "dots",
-              },
-              {
-                match: {
-                  id: "python",
-                },
-                id: "dots",
-              },
-              {
-                match: {
-                  id: "scala",
-                },
-                id: "lines",
-              },
-              {
-                match: {
-                  id: "lisp",
-                },
-                id: "lines",
-              },
-              {
-                match: {
-                  id: "elixir",
-                },
-                id: "lines",
-              },
-              {
-                match: {
-                  id: "javascript",
-                },
-                id: "lines",
-              },
-            ]}
-            legends={[
-              {
-                anchor: "bottom",
-                direction: "column",
-                justify: false,
-                translateX: 450,
-                translateY: -50,
-                itemsSpacing: 50,
-                itemWidth: 100,
-                itemHeight: 18,
-                itemTextColor: "transparent",
-                itemDirection: "left-to-right",
-                itemOpacity: 1,
-                symbolSize: 0,
-                symbolShape: "circle",
-              },
-            ]}
           />
         </div>
-        <div className="WaffleChartContainer">
+        {/* <div className="WaffleChartContainer">
           <h1>
             a <strong>waffle</strong>
           </h1>
           <WaffleChart data={chartData} />
-        </div>
+        </div> */}
         <div className="SpiderChartContainer">
           <h1>
             a <strong>spider</strong> web

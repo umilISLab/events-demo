@@ -29,7 +29,7 @@ services:
     ports:
       - 5050:5050
     depends_on:
-      - mongo
+      - init
     links: [ mongo ]
     working_dir: /app
     entrypoint: ["/bin/sh", "-c" ,"npm install && node index.mjs --host"]
@@ -37,14 +37,24 @@ services:
     #healthcheck:
     #  test: ["CMD-SHELL", "wget -nv -t1 --spider http://localhost:5050/projects || exit 1"]
 
+  init:
+    container_name: events-demo-init
+    image: python:slim
+    volumes:
+      - ./backend/db:/app
+    depends_on:
+      - mongo
+    working_dir: /app
+    entrypoint: ["/bin/bash", "-c" ,"pip install pymongo tqdm && python script.py -d events-demo -f ./demo_full_data.json"]
+    #entrypoint: ["tail", "-f", "/dev/null"]
 
   mongo:
     container_name: events-demo-db
     image: mongo:6.0.13
     ports:
       - 27027:27017
-    volumes:
-      - ./data/db:/data/db
+    #volumes:
+    #  - ./data/db:/data/db
     environment:
       # MONGO_INITDB_ROOT_USERNAME: root
       # MONGO_INITDB_ROOT_PASSWORD: example

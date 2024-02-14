@@ -35,12 +35,14 @@ function Timeline({ data }) {
                   {el.event}
                 </Button>
               ))}
-              <Button
-                variant="soft"
-                onClick={() => setEvent(data.group.results)}
-              >
-                ALL
-              </Button>
+              {data && data.group && (
+                <Button
+                  variant="soft"
+                  onClick={() => setEvent(data.group.results)}
+                >
+                  ALL
+                </Button>
+              )}
             </ButtonGroup>
           </div>
           <div className="SmallLayout">
@@ -54,13 +56,15 @@ function Timeline({ data }) {
                 {el.event}
               </Button>
             ))}
-            <Button
-              sx={{ mt: 2 }}
-              variant="soft"
-              onClick={() => setEvent(data.group.results)}
-            >
-              ALL
-            </Button>
+            {data && data.group && (
+              <Button
+                sx={{ mt: 2 }}
+                variant="soft"
+                onClick={() => setEvent(data.group.results)}
+              >
+                ALL
+              </Button>
+            )}
           </div>
         </div>
         {event && (
@@ -68,9 +72,18 @@ function Timeline({ data }) {
             <HorizontalTimeline data={event} />
             <VerticalTimeline>
               {event.map((e, i) => {
+                const roles = [];
                 const chips = [];
 
-                e.roles.forEach((role) => {
+                e.events.forEach((event) => {
+                  event.roles.forEach((role) => {
+                    if (role.location === "title") {
+                      roles.push(role);
+                    }
+                  });
+                });
+
+                roles.forEach((role) => {
                   if (role.location === "title") {
                     chips.push({
                       name: role.label,

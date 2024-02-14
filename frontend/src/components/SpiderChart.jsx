@@ -31,11 +31,7 @@ function mapData(data) {
 }
 
 function SpiderChart({ data }) {
-  console.log("data", data);
-
   const formattedData = mapData(data);
-
-  console.log("formattedData", formattedData);
 
   return (
     <div className="SpiderChart">

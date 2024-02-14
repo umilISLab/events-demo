@@ -1,5 +1,13 @@
 export function ApiConnector() {
   const API_SERVER = "";
+  // const API_SERVER = "http://localhost:5050";
+
+  async function getPreset() {
+    let url = `${API_SERVER}/events/preset`;
+    const data = await fetch(url);
+    const parsedData = await data.json();
+    return parsedData;
+  }
 
   async function getEvent(eventName, includeBody, startDate, endDate) {
     let url = `${API_SERVER}/events/?event=${eventName}&startDate=${startDate}&endDate=${endDate}`;
@@ -13,6 +21,27 @@ export function ApiConnector() {
     let url = `${API_SERVER}/events/group/?events=${eventsNames}&startDate=${startDate}&endDate=${endDate}`;
     if (includeBody) url += "&includeBody=true";
     const data = await fetch(url);
+    const parsedData = await data.json();
+    return parsedData;
+  }
+
+  async function getAdvancedEvent(queryData, includeBody, startDate, endDate) {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    let url = `${API_SERVER}/events/adv`;
+
+    const data = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify({
+        queryData,
+        includeBody,
+        startDate,
+        endDate,
+      }),
+      headers: myHeaders,
+    });
+
     const parsedData = await data.json();
     return parsedData;
   }
@@ -34,9 +63,19 @@ export function ApiConnector() {
     return parsedData;
   }
 
+  async function getRolesFromEvent(event) {
+    let url = `${API_SERVER}/events/roles?event=${event}`;
+    const data = await fetch(url);
+    const parsedData = await data.json();
+    return parsedData.results;
+  }
+
   return {
     getEvent,
     getEventsGroup,
     getAuthToken,
+    getPreset,
+    getAdvancedEvent,
+    getRolesFromEvent,
   };
 }

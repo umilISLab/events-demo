@@ -12,7 +12,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import allEvents from "../assets/allEvents.json";
 import ArrowDown from "./ArrowDown";
 
-function SimpleForm() {
+function SimpleForm({ events, presets }) {
   const [presetValue, setPresetValue] = useState([]);
   const [customValues, setCustomValues] = useState([]);
   const [includeBody, setIncludeBody] = useState(false);
@@ -56,51 +56,7 @@ function SimpleForm() {
     setEndDate(end);
   };
 
-  const presetOptions = [
-    {
-      value: [
-        "COMMITTING_CRIME",
-        "ARREST",
-        "ROBBERY",
-        "USE_FIREARM",
-        "SUICIDE",
-      ],
-      label: "Crime news",
-    },
-    {
-      value: ["TRIAL", "ACQUITTAL", "SENTENCING", "VERDICT", "INVESTIGATION"],
-      label: "Judicial news",
-    },
-    {
-      value: ["MARRIAGE", "GIVING_BIRTH", "BEING_BORN"],
-      label: "Gossip",
-    },
-    {
-      value: ["VISITING", "ENCOUNTER", "ASSEMBLE", "COME_TOGETHER"],
-      label: "Social",
-    },
-    {
-      value: [
-        "ARRIVING",
-        "DEPARTING",
-        "RETURN",
-        "QUITTING_A_PLACE",
-        "TRAVEL",
-        "BEING_IN_PLACE",
-      ],
-      label: "Movements",
-    },
-    {
-      value: ["STATEMENT", "ANNOUNCEMENT", "DISCUSSION", "SPEECH"],
-      label: "Public speeches",
-    },
-    {
-      value: ["STRIKE", "POLITICAL_ACTIONS"],
-      label: "Strikes and demonstrations",
-    },
-  ];
-
-  const eventsOptions = allEvents.map((event) => ({
+  const eventsOptions = events.map((event) => ({
     value: event,
     label: event,
   }));
@@ -116,7 +72,7 @@ function SimpleForm() {
           placeholder="Select a preset"
           onChange={(newValue) => setPresetValue(newValue)}
           disabled={!!customValues.length}
-          options={presetOptions}
+          options={presets}
           isDisabled={customValues.length}
         />
       </div>
