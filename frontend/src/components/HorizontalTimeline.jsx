@@ -38,7 +38,6 @@ function HorizontalTimeline({ data }) {
         from="1948-01-01"
         to="1948-12-31"
         emptyColor="#eeeeee"
-        // colors={["#61cdbb", "#97e3d5", "#e8c1a0", "#f47560"]}
         colors={timelineColors}
         margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
         yearSpacing={40}

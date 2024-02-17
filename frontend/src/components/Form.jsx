@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Form.css";
 import { ApiConnector } from "../api/ApiConnector";
-import { useNavigate } from "react-router-dom";
 import Toggle from "react-toggle";
 import "react-toggle/style.css";
 import SimpleForm from "./SimpleForm";
@@ -9,7 +8,6 @@ import WelcomeForm from "./WelcomeForm";
 import AdvancedForm from "./AdvancedForm";
 
 function Form() {
-  const navigate = useNavigate();
   const { getPreset } = ApiConnector();
   const [formType, setFormType] = useState("simple");
   const [preset, setPreset] = useState(null);

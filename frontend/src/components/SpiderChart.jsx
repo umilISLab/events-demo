@@ -1,28 +1,5 @@
 import { ResponsiveRadar } from "@nivo/radar";
 
-const fakedata = [
-  {
-    event: "killink",
-    events: 111,
-  },
-  {
-    event: "bitter",
-    events: 48,
-  },
-  {
-    event: "heavy",
-    events: 105,
-  },
-  {
-    event: "strong",
-    events: 82,
-  },
-  {
-    event: "sunny",
-    events: 51,
-  },
-];
-
 function mapData(data) {
   return data.map((el) => ({
     event: el.event,

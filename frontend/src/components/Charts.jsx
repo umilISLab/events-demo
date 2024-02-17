@@ -1,6 +1,5 @@
 import "./Charts.css";
 import { ResponsivePie } from "@nivo/pie";
-import WaffleChart from "./WaffleChart";
 import SpiderChart from "./SpiderChart";
 
 function Charts({ data }) {
@@ -56,12 +55,6 @@ function Charts({ data }) {
             }}
           />
         </div>
-        {/* <div className="WaffleChartContainer">
-          <h1>
-            a <strong>waffle</strong>
-          </h1>
-          <WaffleChart data={chartData} />
-        </div> */}
         <div className="SpiderChartContainer">
           <h1>
             a <strong>spider</strong> web
