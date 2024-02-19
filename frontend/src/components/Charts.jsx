@@ -19,6 +19,7 @@ function Charts({ data }) {
         </h1>
         <div className="PieChartContainer">
           <ResponsivePie
+            isInteractive={false}
             theme={{
               fontSize: 16,
             }}

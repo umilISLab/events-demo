@@ -1,5 +1,6 @@
 import { ResponsiveCalendar } from "@nivo/calendar";
 import "./HorizontalTimeline.css";
+import moment from "moment";
 
 function parseData(data) {
   const parsedData = {};
@@ -16,7 +17,7 @@ function parseData(data) {
 
   for (const key in parsedData) {
     mappedData.push({
-      day: new Date(key).toLocaleDateString().split("/").reverse().join("-"),
+      day: moment(key).format("YYYY-MM-DD"),
       value: parsedData[key],
     });
   }
@@ -35,8 +36,10 @@ function HorizontalTimeline({ data }) {
           textColor: "black",
         }}
         data={parseData(data)}
-        from="1948-01-01"
-        to="1948-12-31"
+        // from={new Date("1948-01-01")}
+        // to={new Date("1948-12-31")}
+        from={moment("1948-01-01").format("YYYY-MM-DD")}
+        to={moment("1948-12-31").format("YYYY-MM-DD")}
         emptyColor="#eeeeee"
         colors={timelineColors}
         margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
