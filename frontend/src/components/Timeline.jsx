@@ -167,10 +167,12 @@ function Timeline({ data }) {
               />
             )}
           </>
-        ) : (
+        ) : event ? (
           <div className="NoData">
             <h2>sorry, no data to show...</h2>
           </div>
+        ) : (
+          ""
         )}
       </div>
     </div>
