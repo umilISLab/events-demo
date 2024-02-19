@@ -3,7 +3,7 @@
   height: 3em;
   background-color: transparent;
   border-width: 0 10px 10px 0;
-  border-color: white;
+  border-color: #1a1a1a;
   border-style: dashed;
   z-index: 5;
   animation: animateArrow 3s infinite ease;

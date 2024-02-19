@@ -7,16 +7,15 @@
 
 .HorizontalTimelineLegend {
   position: absolute;
-  bottom: 35px;
+  bottom: 40px;
   right: 0;
-  color: white;
   display: flex;
   align-items: center;
   margin-right: 35px;
 }
 
 .HorizontalTimelineLegend span {
-  font-family: "Indie Flower", cursive;
+  font-size: 15px;
 }
 
 /* @media only screen and (max-width: 700px) {

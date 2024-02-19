@@ -1,5 +1,6 @@
 export function ApiConnector() {
-  const API_SERVER = "";
+  // const API_SERVER = "";
+  const API_SERVER = "https://eventnetdemo.islab.di.unimi.it";
   // const API_SERVER = "http://localhost:5050";
 
   async function getPreset() {

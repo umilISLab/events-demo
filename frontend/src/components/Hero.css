@@ -2,24 +2,10 @@
   position: relative;
   height: 990px;
   overflow: hidden;
-  background-color: #1a1a1a;
-  background-image: url("/bg.jpg");
-  background-size: cover;
-  background-position: center;
-  font-family: "Indie Flower", cursive;
   max-width: 1220px;
   margin: 0 auto;
-}
-
-.Hero:after {
-  content: "";
-  background-image: url("/noise.png");
-  height: 300%;
-  width: 300%;
-  position: absolute;
-  top: -500px;
-  opacity: 0.1;
-  animation: animateGrain 8s steps(10) infinite;
+  color: #1a1a1a;
+  background-color: white;
 }
 
 .ContentContainer {
@@ -29,43 +15,17 @@
   text-align: center;
 }
 
-.Overlay {
-  position: absolute;
-  width: 100vw;
-  height: 990px;
-  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
-  z-index: 1;
-}
-
-.Hero .Logo {
-  width: 120px;
-}
-
-.LogoFBK {
-  width: 130px;
-  margin-left: 40px;
-}
-
-.LogoRCS {
-  width: 160px;
-  margin-left: 40px;
-}
-
-.Hero .LogoUnimi {
-  width: 355px;
-  margin-left: 40px;
-}
-
 .Hero h1 {
   font-size: 75px;
-  color: white;
-  line-height: 1;
-  margin-bottom: 30px;
-  margin-top: 150px;
-  text-shadow: 4px 4px 1px rgba(66, 68, 90, 0.3);
 }
 
-.Hero .ContentContainer h1 strong {
+.Hero h2 {
+  font-size: 55px;
+  line-height: 1;
+  margin-top: 200px;
+}
+
+.Hero .ContentContainer h2 strong {
   background: #b82974;
   background: linear-gradient(to right, #ff0084 27%, #45fdf2 100%);
   -webkit-background-clip: text;
@@ -75,17 +35,14 @@
 
 .Hero .ContentContainer p {
   font-size: 20px;
-  color: white;
-  max-width: 750px;
+  max-width: 800px;
   margin: 0 auto;
-  margin-top: 120px;
-  text-shadow: 4px 4px 1px rgba(0, 0, 0, 0.789);
+  margin-top: 140px;
 }
 
 .Hero .ContentContainer .ArrowDown {
-  position: absolute;
-  left: 48%;
-  bottom: -40px;
+  margin: 0 auto;
+  margin-top: 100px;
 }
 
 /* @media only screen and (max-width: 1600px) {

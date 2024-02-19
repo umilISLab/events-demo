@@ -3,7 +3,7 @@ import { Button, Checkbox } from "@mui/joy";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import { ApiConnector } from "../api/ApiConnector";
-import { useNavigate } from "react-router-dom";
+import Card from "@mui/joy/Card";
 import { useRecoilState } from "recoil";
 import { dataAtom } from "../store/atoms/dataAtom";
 
@@ -52,9 +52,12 @@ function AdvancedForm({ events }) {
 
     const _data = await Promise.all(queriesPromises);
 
+    const noResults = _data.length === 1 && _data[0].results.length === 0;
+
     setData({
       unit: _data,
       group: null,
+      noResults,
     });
   }
 
@@ -79,28 +82,35 @@ function AdvancedForm({ events }) {
 
   return (
     <div className="AdvancedForm">
-      <h1>
-        Let's create some <strong>queries</strong>
+      <h1 style={{ marginTop: "0" }}>
+        Create <strong>queries</strong>
       </h1>
       {queries && !!queries.length && <h2>Queries:</h2>}
       {queries && !!queries.length && (
         <div className="DisplayQueries">
           {queries.map((query, i) => (
-            <div key={i} className="QueryCard">
-              <DeleteForeverIcon
-                className="DeleteIcon"
-                onClick={() => deleteQuery(query.id)}
-              />
-              <h2>{query.event}</h2>
+            <Card
+              sx={{ mr: 2, mb: 2, padding: "20px", minWidth: "220px" }}
+              key={i}
+              variant="outlined"
+            >
+              <div className="CardHeadContainer">
+                <h2>{query.event}</h2>
+                <DeleteForeverIcon
+                  className="DeleteIcon"
+                  onClick={() => deleteQuery(query.id)}
+                />
+              </div>
               {!!query.roles.length && <span>Roles:</span>}
               <ul>
                 {query.roles.map((role, i) => (
                   <li key={i}>
-                    {role.role} Value: {role.value}
+                    {role.role ? role.role : role.value ? "Value" : ""}
+                    {role.value ? ":" : ""} {role.value}
                   </li>
                 ))}
               </ul>
-            </div>
+            </Card>
           ))}
         </div>
       )}
@@ -110,7 +120,7 @@ function AdvancedForm({ events }) {
           options={eventsOptions}
           className="Select1"
           classNamePrefix="select"
-          placeholder="Choose events"
+          placeholder="Select event"
           onChange={(value) => {
             setEventValue(value);
             setRoleValue(null);
@@ -124,14 +134,15 @@ function AdvancedForm({ events }) {
             <h2>Roles</h2>
             {tempRoles.map((tp, i) => (
               <li key={i}>
-                {tp.role} Value: {tp.value}
+                {tp.role ? tp.role : tp.value ? "Value" : ""}
+                {tp.value ? ":" : ""} {tp.value}
               </li>
             ))}
           </ul>
         )}
         <div className="RolesContainer">
           <div className="Inputs">
-            <span>
+            <span style={{ marginRight: "30px" }}>
               <h2>select a role</h2>
               <ReactSelect
                 isDisabled={!eventValue && !roleList}
@@ -139,15 +150,15 @@ function AdvancedForm({ events }) {
                 options={roleList}
                 className="Select2"
                 classNamePrefix="select"
-                placeholder="Choose role"
+                placeholder="Select semantic role"
                 onChange={(value) => setRoleValue(value)}
                 value={roleValue}
               />
             </span>
             <span className="ValueContainer">
-              <h2>and write a value (if you want)</h2>
+              <h2>and write a value</h2>
               <Input
-                sx={{ width: "300px", fontFamily: '"VT323", monospace' }}
+                sx={{ width: "300px" }}
                 placeholder="Write a value here..."
                 onChange={(event) => setInputValue(event.target.value)}
                 value={inputValue}
@@ -155,12 +166,12 @@ function AdvancedForm({ events }) {
             </span>
             <Button
               sx={{
-                marginLeft: "30px",
                 width: "120px",
                 height: "36px",
                 // maxWidth: "100%",
                 display: "block",
                 zIndex: "20",
+                marginTop: "20px",
               }}
               onClick={function () {
                 const newTempRoles = [
@@ -228,12 +239,10 @@ function AdvancedForm({ events }) {
       <Checkbox
         checked={includeBody}
         sx={{
-          color: "white",
           mt: 3,
-          fontFamily: '"VT323", monospace',
-          fontSize: "25px",
+          fontSize: "20px",
         }}
-        label="I want to search also in the body of the articles"
+        label="Extend the search to the article body"
         onChange={() => setIncludeBody(!includeBody)}
       />
       <Button
@@ -255,7 +264,6 @@ function AdvancedForm({ events }) {
             queries,
           });
         }}
-        variant="soft"
       >
         EXPLORE
       </Button>

@@ -32,7 +32,7 @@ function HorizontalTimeline({ data }) {
       <ResponsiveCalendar
         theme={{
           fontSize: 16,
-          textColor: "white",
+          textColor: "black",
         }}
         data={parseData(data)}
         from="1948-01-01"

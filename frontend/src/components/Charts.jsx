@@ -15,19 +15,9 @@ function Charts({ data }) {
     <div className="Charts">
       <div className="ChartsContent">
         <h1>
-          Here's some <strong>charts</strong> for you
+          Here's a <strong>chart</strong> for you
         </h1>
-        <p>
-          Aenean elementum ultrices vehicula. Vivamus lobortis consequat nibh,
-          sit amet tempor velit tempor id. Cras ligula tortor, tristique vitae
-          mi sed, convallis porta nibh. Pellentesque id tincidunt leo, vitae
-          dapibus turpis. Integer vitae malesuada odio. Donec vel bibendum
-          tortor. Curabitur sed aliquam augue. Nam suscipit convallis pharetra.
-        </p>
         <div className="PieChartContainer">
-          <h1>
-            a <strong>pie</strong>
-          </h1>
           <ResponsivePie
             theme={{
               fontSize: 16,
@@ -45,7 +35,7 @@ function Charts({ data }) {
               modifiers: [["darker", 0.2]],
             }}
             arcLinkLabelsSkipAngle={10}
-            arcLinkLabelsTextColor="white"
+            arcLinkLabelsTextColor="black"
             arcLinkLabelsThickness={8}
             arcLinkLabelsColor={{ from: "color" }}
             arcLabelsSkipAngle={10}
@@ -55,12 +45,12 @@ function Charts({ data }) {
             }}
           />
         </div>
-        <div className="SpiderChartContainer">
+        {/* <div className="SpiderChartContainer">
           <h1>
             a <strong>spider</strong> web
           </h1>
           <SpiderChart data={data.unit} />
-        </div>
+        </div> */}
       </div>
     </div>
   );

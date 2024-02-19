@@ -4,22 +4,9 @@
   width: 100%;
   padding: 30px;
   max-width: 1220px;
-  background-color: #020202;
   text-align: center;
-  font-family: "VT323", monospace;
   margin: 0 auto;
-}
-
-.Charts:after {
-  content: "";
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png");
-  height: 300%;
-  width: 300%;
-  position: absolute;
-  left: -50%;
-  top: -50%;
-  opacity: 0.1;
-  animation: animateGrain 5s steps(10) infinite;
+  background-color: white;
 }
 
 .ChartsContent {
@@ -28,8 +15,7 @@
 }
 
 .Charts h1 {
-  font-size: 70px;
-  color: white;
+  font-size: 55px;
   line-height: 1;
   margin-bottom: 50px;
   margin-top: 50px;
@@ -44,15 +30,14 @@
 
 .Charts p {
   font-size: 20px;
-  color: white;
-  width: 700px;
+  width: 600px;
   margin: 0 auto;
 }
 
 .PieChartContainer,
 .WaffleChartContainer,
 .SpiderChartContainer {
-  height: 600px;
+  height: 500px;
   margin: 50px 0 0 0;
 }
 

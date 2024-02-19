@@ -44,9 +44,12 @@ function SimpleForm({ events, presets }) {
       endDate
     );
 
+    const noResults = _data.length === 1 && _data[0].results.length === 0;
+
     setData({
       unit: _data,
       group: _groupData,
+      noResults,
     });
   }
 
@@ -65,11 +68,11 @@ function SimpleForm({ events, presets }) {
     <div className="SimpleForm">
       <div className="PresetSection">
         <h1>
-          You can start choosing a <strong>preset</strong>
+          Select a <strong>domain</strong>
         </h1>
         <ReactSelect
           className="Select1"
-          placeholder="Select a preset"
+          placeholder="Select a domain"
           onChange={(newValue) => setPresetValue(newValue)}
           disabled={!!customValues.length}
           options={presets}
@@ -78,21 +81,21 @@ function SimpleForm({ events, presets }) {
       </div>
       <div className="CustomChoiche">
         <h1>
-          or selecting your desired <strong>events</strong>
+          or <br /> select one or more <strong>event</strong> types
         </h1>
         <ReactSelect
           isMulti
           options={eventsOptions}
           className="Select2"
           classNamePrefix="select"
-          placeholder="Choose events"
+          placeholder="Select event type(s)"
           onChange={(value) => setCustomValues(value)}
           isOptionDisabled={() => customValues.length >= 6}
         />
       </div>
       <div className="RangePickerContainer">
         <h1>
-          and select a <strong>date range</strong>
+          and <br /> select a <strong>date</strong> range
         </h1>
         <DatePicker
           selected={startDate}
@@ -109,12 +112,10 @@ function SimpleForm({ events, presets }) {
       <Checkbox
         checked={includeBody}
         sx={{
-          color: "white",
           mt: 3,
-          fontFamily: '"VT323", monospace',
-          fontSize: "25px",
+          fontSize: "20px",
         }}
-        label="I want to search also in the body of the articles"
+        label="Extend the search to the article body"
         onChange={() => setIncludeBody(!includeBody)}
       />
       <Button
@@ -147,7 +148,6 @@ function SimpleForm({ events, presets }) {
             });
           }
         }}
-        variant="soft"
       >
         EXPLORE
       </Button>

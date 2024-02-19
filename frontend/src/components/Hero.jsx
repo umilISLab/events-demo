@@ -4,28 +4,17 @@ import "./Hero.css";
 function Hero() {
   return (
     <div className="Hero">
-      <div className="Overlay"></div>
       <div className="ContentContainer">
-        <div className="LogoContainer">
-          {/* <img className="Logo" src="/logo.png"></img> */}
-          <img className="LogoFBK" src="/logo_fbk.png"></img>
-          <img src="/logo_unimi.png" alt="" className="LogoUnimi" />
-          <img className="LogoRCS" src="/logo_rcs.png"></img>
-        </div>
-        <h1>
-          Explore 1948, <br /> like never <strong>before</strong>
-        </h1>
+        <h1>TimeFrame</h1>
+        <h2>
+          Exploring 1948, <br /> one <strong>event</strong> at a time
+        </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec orci
-          nisi, iaculis non eros a, tempus maximus elit. Phasellus vitae
-          tristique lectus. Phasellus dignissim sit amet tellus a semper.
-          Pellentesque congue nec ipsum sit amet accumsan. Nam enim massa,
-          malesuada eget imperdiet at, tristique ut augue. Mauris convallis eget
-          ligula ut pulvinar. Aenean elementum ultrices vehicula. Vivamus
-          lobortis consequat nibh, sit amet tempor velit tempor id. Cras ligula
-          tortor, tristique vitae mi sed, convallis porta nibh. Pellentesque id
-          tincidunt leo, vitae dapibus turpis. Integer vitae malesuada odio.
-          Donec vel bibendum tortor. Curabitur sed aliquam augue.
+          Exploring 1948, one event at a time TimeFrame allows to explore the
+          whole textual 1948 edition of Corriere della Sera (10,418 newspaper
+          articles) and to visualize on a timeline over 146,000 event mentions
+          and their participants. TimeFrame makes it possible to build
+          event-based queries at different granularity levels.
         </p>
         <ArrowDown />
       </div>

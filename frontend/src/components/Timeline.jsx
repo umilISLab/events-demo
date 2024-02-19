@@ -67,10 +67,10 @@ function Timeline({ data }) {
             )}
           </div>
         </div>
-        {event && (
+        {event && event.length > 0 ? (
           <>
             <HorizontalTimeline data={event} />
-            <VerticalTimeline>
+            <VerticalTimeline lineColor="#d1cfcf">
               {event.map((e, i) => {
                 const roles = [];
                 const chips = [];
@@ -167,6 +167,10 @@ function Timeline({ data }) {
               />
             )}
           </>
+        ) : (
+          <div className="NoData">
+            <h2>sorry, no data to show...</h2>
+          </div>
         )}
       </div>
     </div>

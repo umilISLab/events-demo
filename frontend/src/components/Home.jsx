@@ -22,12 +22,19 @@ function Home() {
       <div id="form" className="FormContainer">
         <Form />
       </div>
-      {data && (
+      {data && data.noResults && (
+        <div className="NoResults">
+          <h1>
+            sorry, no <strong>results </strong>found...
+          </h1>
+        </div>
+      )}
+      {data && !data.noResults && (
         <div className="ChartsContainer">
           <Charts data={data} />
         </div>
       )}
-      {data && (
+      {data && !data.noResults && (
         <div id="timeline" className="TimelineContainer">
           <Timeline data={data} />
         </div>
