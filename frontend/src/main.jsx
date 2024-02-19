@@ -9,21 +9,21 @@ import AuthGuard from "./components/AuthGuard.jsx";
 import Login from "./components/Login.jsx";
 
 const router = createBrowserRouter([
-  {
-    path: "/login",
-    element: (
-      <AuthGuard>
-        <Login />
-      </AuthGuard>
-    ),
-    errorElement: <>Error Page</>,
-  },
+  // {
+  //   path: "/login",
+  //   element: (
+  //     <AuthGuard>
+  //       <Login />
+  //     </AuthGuard>
+  //   ),
+  //   errorElement: <>Error Page</>,
+  // },
   {
     path: "/",
     element: (
-      <AuthGuard>
-        <Home />
-      </AuthGuard>
+      // <AuthGuard>
+      <Home />
+      // </AuthGuard>
     ),
     errorElement: <>Error Page</>,
   },
