@@ -50,9 +50,7 @@ function generateDynamicBody(bodyData) {
 }
 
 function ArticleModal({ isOpen, data, close }) {
-  const test2 = generateDynamicBody(data.body);
-
-  const bodyArray = data.body.map((el) => el.tokens);
+  const body = generateDynamicBody(data.body);
 
   const { highEvents, lowEvents } = countedEvents(data.events);
 
@@ -70,7 +68,7 @@ function ArticleModal({ isOpen, data, close }) {
         <Sheet
           variant="outlined"
           sx={{
-            maxWidth: "90%",
+            maxWidth: "1200px",
             maxHeight: "90%",
             overflowY: "auto",
             overflowX: "hidden",
@@ -150,7 +148,7 @@ function ArticleModal({ isOpen, data, close }) {
             id="modal-desc"
             textColor="text.tertiary"
           ></Typography>
-          <div dangerouslySetInnerHTML={{ __html: test2 }} />
+          <div dangerouslySetInnerHTML={{ __html: body }} />
         </Sheet>
       </Modal>
     </div>
